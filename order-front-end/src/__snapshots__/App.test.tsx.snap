@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render List Order 1`] = `ShallowWrapper {}`;
+
+exports[`render Order Detail 1`] = `ShallowWrapper {}`;
+
+exports[`renders Shop 1`] = `ShallowWrapper {}`;

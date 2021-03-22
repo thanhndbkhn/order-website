@@ -1,0 +1,51 @@
+version: '3.3'
+services:
+  mongo:
+    image: mongo:4.4
+    container_name: mongo
+    restart: always
+    ports:
+     - "27017:27017"
+    networks:
+      - test
+
+  payment:
+    build: ./payment-service
+    hostname: payment
+    container_name: payment
+    env_file:
+      - .env
+    ports:
+      - "5000:5000"
+    networks:
+      - test
+
+  orders:
+    build: ./order-service
+    container_name: orders
+    environment:
+       - MONGO_URI=mongodb://mongo:27017/test
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env
+    restart: always
+    depends_on:
+      - mongo
+      - payment
+    networks:
+      - test
+
+  order-frontend:
+    build: ./order-front-end
+    container_name: order-frontend
+    ports:
+      - '3000:80'
+    env_file:
+      - .env
+    networks:
+      - test
+
+networks:
+  test:
+    driver: bridge

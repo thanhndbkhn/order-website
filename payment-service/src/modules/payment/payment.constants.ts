@@ -1,0 +1,4 @@
+export enum PAYMENT_STATUS {
+  DECLINED = 0,
+  CONFIRMED = 1
+}
