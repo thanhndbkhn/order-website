@@ -10,9 +10,9 @@ Then, client app can use at port: 3000
 Please follow these steps
 
 ```bash
-git clone https://github.com/sotatek-thanhnguyen4/practical-assignment.git
+git clone https://github.com/thanhndbkhn/order-website.git
 
-cd practical-assignment && docker-compose up -d
+cd order-website && docker-compose up -d
 
 access: http://localhost:3000
 ```
